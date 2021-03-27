@@ -22,7 +22,15 @@ public class Task1_3_4 {
 
         Figura p2 = new Prostokat2(20, 20, 10, 5, '*');
 
-        ((Prostokat2)p2).rysuj();
+        ((Prostokat2) p2).rysuj();
+
+        Kolo2 k2 = new Kolo2(15, 20, 5);
+
+        k2.przesunDo(50, 40);    // przesunięcie środka koła do punktu (50, 40)
+        System.out.println(k2);
+
+        k2.powrot();                    // powrót do poprzedniej pozycji (bezpośrednio przed przesunięciem) środka koła
+        System.out.println(k2);
     }
 }
 
@@ -194,6 +202,8 @@ class Prostokat2 extends Prostokat implements Rysowanie{
 
 class Kolo2 extends Kolo implements Transformacja{
 
+    int oldX, oldY;
+
     public Kolo2(int x, int y, int r) {
         super(x, y, r);
     }
@@ -201,7 +211,8 @@ class Kolo2 extends Kolo implements Transformacja{
     //Brak pomyslu jaka implementacje wykonac :(((
     @Override
     public void przesunDo(int x, int y) {
-
+        oldX = getX();
+        oldY = getY();
     }
 
     @Override
